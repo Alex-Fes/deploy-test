@@ -1,16 +1,18 @@
 import { DataSource } from "typeorm";
 
-import { validateEnv } from "../config/env.validation";
-
-const env = validateEnv(process.env);
+const required = (key: string): string => {
+  const value = process.env[key];
+  if (!value) throw new Error(`Missing required environment variable: ${key}`);
+  return value;
+};
 
 export default new DataSource({
   type: "postgres",
-  host: env.DATABASE_HOST,
-  port: env.DATABASE_PORT,
-  username: env.DATABASE_USER,
-  password: env.DATABASE_PASSWORD,
-  database: env.DATABASE_NAME,
+  host: required("DATABASE_HOST"),
+  port: parseInt(required("DATABASE_PORT")),
+  username: required("DATABASE_USER"),
+  password: required("DATABASE_PASSWORD"),
+  database: required("DATABASE_NAME"),
   synchronize: false,
   entities: ["src/modules/**/*.entity.ts"],
   migrations: ["src/database/migrations/*.ts"],
