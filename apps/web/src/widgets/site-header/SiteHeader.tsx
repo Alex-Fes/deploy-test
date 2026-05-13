@@ -20,7 +20,7 @@ export function SiteHeader() {
     <header className={styles.header}>
       <div className={styles.inner}>
         <Link className={styles.brand} href="/">
-          Starter
+          Starter Test
         </Link>
         <nav className={[styles.nav, open ? styles.navOpen : undefined].filter(Boolean).join(" ")}>
           {navItems.map((item) => (
