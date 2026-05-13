@@ -1,0 +1,16 @@
+@use "@repo/styles/index.scss" as *;
+
+.section {
+  @include container;
+  //@include responsive-vw(margin-top, 50px);
+}
+
+.section_muted {
+  background: var(--color-surface-strong);
+}
+
+.section_hero {
+  min-height: min(760px, 92vh);
+  display: grid;
+  align-items: center;
+}

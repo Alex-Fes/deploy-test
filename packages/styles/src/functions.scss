@@ -1,0 +1,16 @@
+@use "sass:math";
+
+@function vw-desktop($px) {
+  @return math.div($px, 1920) * 100vw;
+}
+
+@function vw-mobile($px) {
+  @return math.div($px, 767) * 100vw;
+}
+
+@function fluid-size($desktop-px, $mobile-px) {
+  $slope: math.div($desktop-px - $mobile-px, 1920 - 767);
+  $intercept: $mobile-px - $slope * 767;
+
+  @return clamp(#{$mobile-px}px, #{$intercept}px + #{$slope * 100}vw, #{$desktop-px}px);
+}

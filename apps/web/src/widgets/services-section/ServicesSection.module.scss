@@ -1,0 +1,9 @@
+@use "@repo/styles/index.scss" as *;
+
+.columns {
+
+}
+
+.gap {
+  @include responsive-vw(gap, 50px);
+}

@@ -1,0 +1,58 @@
+@use "@repo/styles/index.scss" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  border-bottom: 1px solid var(--color-border);
+  background: rgb(255 255 255 / 92%);
+  backdrop-filter: blur(12px);
+}
+
+.inner {
+  @include flex(row, center, space-between);
+  @include responsive-vw(gap, 24px);
+  min-height: var(--header-height);
+  @include container;
+}
+
+.brand {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav {
+  @include flex(row, center, center);
+  @include responsive-vw(gap, 18px);
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.menuButton {
+  display: none;
+}
+
+@include mobile {
+  .inner {
+    @include responsive-vw(gap, 16px);
+  }
+
+  .nav {
+    position: fixed;
+    inset: var(--header-height) 0 auto 0;
+    display: none;
+    grid-template-columns: 1fr;
+    @include responsive-vw(padding, 24px);
+    background: #fff;
+  }
+
+  .navOpen {
+    display: grid;
+  }
+
+  .menuButton {
+    display: inline-flex;
+  }
+}

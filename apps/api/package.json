@@ -1,0 +1,39 @@
+{
+  "name": "@repo/api",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build": "nest build",
+    "dev": "nest start --watch",
+    "start": "node dist/main.js",
+    "lint": "eslint \"src/**/*.ts\"",
+    "test": "echo \"No API tests configured yet\"",
+    "typecheck": "tsc --noEmit",
+    "typeorm": "typeorm-ts-node-commonjs -d src/database/data-source.ts",
+    "typeorm:migration:generate": "npm run typeorm -- migration:generate src/database/migrations/GeneratedMigration",
+    "typeorm:migration:run": "npm run typeorm -- migration:run",
+    "typeorm:migration:revert": "npm run typeorm -- migration:revert"
+  },
+  "dependencies": {
+    "@nestjs/common": "latest",
+    "@nestjs/config": "latest",
+    "@nestjs/core": "latest",
+    "@nestjs/platform-express": "latest",
+    "@nestjs/typeorm": "latest",
+    "class-transformer": "latest",
+    "class-validator": "latest",
+    "pg": "latest",
+    "reflect-metadata": "latest",
+    "rxjs": "latest",
+    "typeorm": "latest"
+  },
+  "devDependencies": {
+    "@eslint/js": "latest",
+    "@nestjs/cli": "latest",
+    "@types/node": "latest",
+    "eslint": "latest",
+    "ts-node": "latest",
+    "typescript": "latest",
+    "typescript-eslint": "latest"
+  }
+}

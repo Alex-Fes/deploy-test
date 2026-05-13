@@ -1,0 +1,21 @@
+{
+  "name": "@repo/styles",
+  "private": true,
+  "version": "0.1.0",
+  "exports": {
+    "./index.scss": "./src/index.scss",
+    "./globals.scss": "./src/globals.scss",
+    "./reset.scss": "./src/reset.scss",
+    "./tokens.scss": "./src/tokens.scss",
+    "./typography.scss": "./src/typography.scss",
+    "./mixins.scss": "./src/mixins.scss",
+    "./functions.scss": "./src/functions.scss",
+    "./utilities.scss": "./src/utilities.scss"
+  },
+  "scripts": {
+    "build": "echo \"styles package has no build step\"",
+    "lint": "echo \"styles package has no lint step\"",
+    "test": "echo \"styles package has no tests\"",
+    "typecheck": "echo \"styles package has no typecheck step\""
+  }
+}

@@ -1,0 +1,87 @@
+@use "sass:math";
+@use "./vars" as *;
+
+@mixin media-down($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin media-up($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin container {
+  margin-inline: auto;
+  @include responsive-vw(padding-inline, 50px);
+
+  @include media-down(767px) {
+    @include responsive-vw(padding-inline, 20px);
+  }
+}
+
+@mixin flex($direction: column, $align: center, $justify: flex-start) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin grid($columns) {
+  display: grid;
+  grid-template-columns: $columns;
+}
+
+@mixin typography($size, $line-height: 1.2, $weight: 400) {
+  @include responsive-vw(font-size, $size);
+  @include responsive-vw(line-height, $line-height);
+  font-weight: $weight;
+}
+
+@mixin focus-ring {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@function vw($px, $base-width) {
+  @return calc(#{math.div($px, $base-width) * 100}vw);
+}
+
+@mixin responsive-vw($property, $px) {
+  #{$property}: vw($px, $media-smartphone);
+  @include media-up(768px) {
+    #{$property}: vw($px, $media-desktop);
+  }
+}
+
+
+@mixin desktop {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}

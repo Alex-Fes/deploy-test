@@ -1,0 +1,19 @@
+.skeleton {
+  min-height: 20px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(90deg, var(--color-surface), var(--color-surface-strong), var(--color-surface));
+  background-size: 200% 100%;
+  animation: shimmer 1.2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+  }
+}

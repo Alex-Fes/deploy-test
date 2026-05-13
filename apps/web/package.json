@@ -1,0 +1,30 @@
+{
+  "name": "@repo/web",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build": "next build --webpack",
+    "dev": "next dev --webpack",
+    "start": "next start",
+    "lint": "echo \"web lint not configured yet\"",
+    "test": "echo \"No frontend tests configured yet\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@repo/styles": "0.1.0",
+    "@repo/ui": "0.1.0",
+    "@tanstack/react-query": "latest",
+    "axios": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "sass": "latest"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "typescript": "latest"
+  }
+}

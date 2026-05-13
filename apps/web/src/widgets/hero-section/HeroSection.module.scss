@@ -1,0 +1,6 @@
+@use "@repo/styles/index.scss" as *;
+
+.container {
+  @include flex(column, center, center);
+  @include responsive-vw(gap, 24px);
+}
