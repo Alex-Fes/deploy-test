@@ -18,7 +18,13 @@ export class MailService {
   ) {}
 
   async sendLeadNotification(lead: Lead) {
-    const recipient = this.config.getOrThrow("MAIL_TO");
+    const recipient = this.config.get("MAIL_TO");
+
+    if (!recipient) {
+      this.logger.warn("MAIL_TO is not configured — lead notification skipped");
+      return;
+    }
+
     const subject = "New lead request";
 
     this.logger.log(

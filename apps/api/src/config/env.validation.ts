@@ -9,13 +9,13 @@ export type AppEnv = {
   DATABASE_USER: string;
   DATABASE_PASSWORD: string;
   DATABASE_NAME: string;
-  SMTP_HOST: string;
-  SMTP_PORT: number;
-  SMTP_SECURE: boolean;
-  SMTP_USER: string;
-  SMTP_PASS: string;
-  MAIL_FROM: string;
-  MAIL_TO: string;
+  SMTP_HOST?: string;
+  SMTP_PORT?: number;
+  SMTP_SECURE?: boolean;
+  SMTP_USER?: string;
+  SMTP_PASS?: string;
+  MAIL_FROM?: string;
+  MAIL_TO?: string;
   WEB_ORIGIN?: string;
 };
 
@@ -61,12 +61,12 @@ export const validateEnv = (env: RawEnv): AppEnv => ({
   DATABASE_USER: requiredString(env, "DATABASE_USER"),
   DATABASE_PASSWORD: requiredString(env, "DATABASE_PASSWORD"),
   DATABASE_NAME: requiredString(env, "DATABASE_NAME"),
-  SMTP_HOST: requiredString(env, "SMTP_HOST"),
-  SMTP_PORT: requiredNumber(env, "SMTP_PORT"),
-  SMTP_SECURE: requiredBoolean(env, "SMTP_SECURE"),
-  SMTP_USER: requiredString(env, "SMTP_USER"),
-  SMTP_PASS: requiredString(env, "SMTP_PASS"),
-  MAIL_FROM: requiredString(env, "MAIL_FROM"),
-  MAIL_TO: requiredString(env, "MAIL_TO"),
+  SMTP_HOST: env.SMTP_HOST,
+  SMTP_PORT: env.SMTP_PORT ? Number(env.SMTP_PORT) : undefined,
+  SMTP_SECURE: env.SMTP_SECURE ? env.SMTP_SECURE.toLowerCase() === "true" : undefined,
+  SMTP_USER: env.SMTP_USER,
+  SMTP_PASS: env.SMTP_PASS,
+  MAIL_FROM: env.MAIL_FROM,
+  MAIL_TO: env.MAIL_TO,
   WEB_ORIGIN: env.WEB_ORIGIN,
 });
