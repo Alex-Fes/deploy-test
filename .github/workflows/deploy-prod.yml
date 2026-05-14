@@ -32,6 +32,7 @@ jobs:
             NODE_ENV=development npm ci --prefer-offline
 
             echo "▶ Build apps"
+            set -a && source .env.prod && set +a
             NODE_ENV=development npx turbo build --filter=@repo/web --filter=@repo/api
 
             echo "▶ Copy Next.js static assets to standalone"
