@@ -3,16 +3,17 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "build": "../../node_modules/.bin/nest build",
-    "dev": "../../node_modules/.bin/nest start --watch",
+    "build": "nest build",
+    "dev": "nest start --watch",
     "start": "node dist/main.js",
     "lint": "eslint \"src/**/*.ts\"",
     "test": "echo \"No API tests configured yet\"",
     "typecheck": "tsc --noEmit",
     "typeorm": "typeorm-ts-node-commonjs -d src/database/data-source.ts",
-    "typeorm:migration:generate": "npm run typeorm -- migration:generate src/database/migrations/GeneratedMigration",
+    "typeorm:migration:generate": "npm run typeorm -- migration:generate",
     "typeorm:migration:run": "npm run typeorm -- migration:run",
-    "typeorm:migration:revert": "npm run typeorm -- migration:revert"
+    "typeorm:migration:revert": "npm run typeorm -- migration:revert",
+    "db:seed": "ts-node --project tsconfig.json -r tsconfig-paths/register src/database/seed.ts"
   },
   "dependencies": {
     "@nestjs/common": "latest",
@@ -20,6 +21,7 @@
     "@nestjs/core": "latest",
     "@nestjs/platform-express": "latest",
     "@nestjs/typeorm": "latest",
+    "bcryptjs": "^3.0.3",
     "class-transformer": "latest",
     "class-validator": "latest",
     "pg": "latest",
@@ -30,6 +32,7 @@
   "devDependencies": {
     "@eslint/js": "latest",
     "@nestjs/cli": "latest",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "latest",
     "eslint": "latest",
     "ts-node": "latest",
